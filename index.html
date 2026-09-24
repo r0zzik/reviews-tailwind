@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Подключаем файл именно из папки public! -->
+    <link rel="stylesheet" href="./public/output.css">
+
+    <title>Project Tailwind 3</title>
+</head>
+<body class="bg-gradient-to-tl from-indigo-50 via-white to-purple-50 min-h-screen">
+
+    <!-- СЕКЦИЯ -->
+    <section class="bg-gradient-to-br from-indigo-50 via-white to-purple-50 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.5)] py-12 max-w-7xl mx-auto mt-8 px-4 rounded-lg">
+        <div class="max-w-7xl mx-auto flex justify-end gap-4 flex-wrap">
+            <span class="text-gray-400 text-xs">Сортировка:</span>
+            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all [&.active]:font-bold" data-sort="date-desc">&darr;Дата</button>
+            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all [&.active]:font-bold" data-sort="date-asc">&uarr;Дата</button>
+            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all [&.active]:font-bold" data-sort="rating-desc">&darr;Рейтинг</button>
+            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all [&.active]:font-bold" data-sort="rating-asc">&uarr;Рейтинг</button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reviews-grid">
+
+            <!-- КАРТОЧКА 1 -->
+
+            <!-- bg-card-bg (Фон карточки - Задача 1). -->
+            <!-- p-6 (Внутр отступы карточки - Задача 2). -->
+            <!-- mb-4 (Маргин-баттон карточки - Задача 2). -->
+            <!-- border (Граница карточки - Задача 2). -->
+            <!-- rounded-lg (Скругление углов карточки - Задача 2). -->
+            <!-- При наведении на карточку добавьте тень и увеличьте её размер с помощью классов hover:shadow-xl и hover:scale-105 - Задача 4. -->
+            <!-- Добавьте плавный переход с помощью transition transform duration-300 - Задача 4. -->
+            <article class="bg-card-bg p-6 mb-4 mt-4 border border-gray-300 rounded-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 min-w-0" data-date="2026-09-24" data-rating="2">
+                <div class="flex items-start gap-4">
+                    <!-- Используйте классы w-16 h-16 rounded-full для изображения пользователя - Задача 3. -->
+                    <img class="w-16 h-16 rounded-full object-cover" src="/src/images/Fry.jpg" alt="Аватар">
+                    <div class="flex flex-col min-w-0">
+                        <!-- text-author-name (Цвет текста имени - Задача 1). -->
+                        <!-- font-author-name (Шрифт текста имени - Задача 1). -->
+                        <h3 class="text-author-name font-author-name text-lg font-semibold break-words">Skeptik-2000</h3>
+                        <!-- text-star-rating (Цвет текста звезд - Задача 1). -->
+                        <!-- Для рейтинга используйте HTML-сущности звёзд (&#9733; для заполненной звезды и &#9734; для пустой звезды) и примените цвет text-yellow-500 ??? для их оформления - Задача 3. -->
+                        <p class="text-star-rating text-base font-bold">&#9733; &#9733; &#9734; &#9734; &#9734;</p>
+                        <p class="text-gray-400 text-xs tracking-widest">24.09.2026</p>
+                    </div>
+                </div>
+                <!-- text-review-name (Цвет текста отзыва - Задача 1). -->  
+                <h4 class="text-review-text font-review-text text-base font-bold leading-tight mt-4">Очки для компьютера с защитой от синего спектра</h4>
+                <!-- font-review-text (Шрифт текста отзыва - Задача 1). -->
+                <p class="text-review-text font-review-text text-base leading-tight mt-2 line-clamp-3 review-text">
+                    Заказал эти очки, чтобы глаза меньше уставали. В итоге сижу в них второй час и вообще не могу понять: то ли очки бракованные, то ли у меня зрение упало, то ли продавец пытается меня обмануть... Короче, товар выглядит подозрительно. Заберите мои деньги и верните старые очки!
+                </p>
+                <button class="text-gray-400 text-xs tracking-widest mt-2 cursor-pointer hover:font-semibold transition-all read-more-button">Читать дальше</button>
+            </article>
+
+            <!-- КАРТОЧКА 2 -->
+
+            <article class="bg-card-bg p-6 mb-4 mt-4 border border-gray-300 rounded-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 min-w-0" data-date="2026-03-15" data-rating="5">
+                <div class="flex items-start gap-4">
+                    <img class="w-16 h-16 rounded-full object-cover" src="/src/images/Boy.jpg" alt="Аватар">
+                    <div class="flex flex-col min-w-0">
+                        <h3 class="text-author-name font-author-name text-lg font-semibold break-words">Арсений_Интроверт</h3>
+                        <p class="text-star-rating text-base font-bold">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                        <p class="text-gray-400 text-xs tracking-widest">15.03.2026</p>
+                    </div>
+                </div>
+                <h4 class="text-review-text font-review-text text-base font-bold leading-tight mt-4">Каска строительная защитная</h4>
+                <p class="text-review-text font-review-text text-base leading-tight mt-2 line-clamp-3 review-text">
+                    Прислали не совсем то, что на карточке товара (материал больше похож на прессованный картон, а не на пластик), но со своими функциями справляется на ура. Лицо защищено от внешнего мира, лишних вопросов коллег и солнечных лучей. Сижу на холме, созерцаю бытие, никто ко мне не лезет. Идеально.
+                </p>
+                <button class="text-gray-400 text-xs tracking-widest mt-2 cursor-pointer hover:font-semibold transition-all read-more-button">Читать дальше</button>
+            </article>
+
+            <!-- КАРТОЧКА 3 -->
+
+            <article class="bg-card-bg p-6 mb-4 mt-4 border border-gray-300 rounded-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 min-w-0" data-date="2026-06-03" data-rating="5">
+                <div class="flex items-start gap-4">
+                    <img class="w-16 h-16 rounded-full object-cover" src="/src/images/Elf.jpg" alt="Аватар">
+                    <div class="flex flex-col min-w-0">
+                        <h3 class="text-author-name font-author-name text-lg font-semibold break-words">LeGend_Of_Zelda</h3>
+                        <p class="text-star-rating text-base font-bold">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                        <p class="text-gray-400 text-xs tracking-widest">03.06.2026</p>
+                    </div>
+                </div>
+                <h4 class="text-review-text font-review-text text-base font-bold leading-tight mt-4">Набор керамических горшков для цветов (12 шт.)</h4>
+                <p class="text-review-text font-review-text text-base leading-tight mt-2 line-clamp-3 review-text">
+                    Просто потрясающие горшки! Разлетаются в щепки от одного удара мечом! Внутри, правда, не оказалось ни одной изумрудной рупии, только земля и какой-то дохлый фикус, но сам процесс разбивания доставил мне массу удовольствия. Заказал еще три набора, уже занёс руку для удара!
+                </p>
+                <button class="text-gray-400 text-xs tracking-widest mt-2 cursor-pointer hover:font-semibold transition-all read-more-button">Читать дальше</button>
+            </article>
+
+            <!-- КАРТОЧКА 4 -->
+
+            <article class="bg-card-bg p-6 mb-4 mt-4 border border-gray-300 rounded-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 min-w-0" data-date="2026-12-27" data-rating="4">
+                <div class="flex items-start gap-4">
+                    <img class="w-16 h-16 rounded-full object-cover" src="/src/images/Girl.jpg" alt="Аватар">
+                    <div class="flex flex-col min-w-0">
+                        <h3 class="text-author-name font-author-name text-lg font-semibold break-words">xX_KiberPuck_Xx</h3>
+                        <p class="text-star-rating text-base font-bold">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
+                        <p class="text-gray-400 text-xs tracking-widest">27.12.2026</p>
+                    </div>
+                </div>
+                <h4 class="text-review-text font-review-text text-base font-bold leading-tight mt-4">Беспроводные игровые наушники с RGB-подсветкой</h4>
+                <p class="text-review-text font-review-text text-base leading-tight mt-2 line-clamp-3 review-text">
+                    Звук — пушка, басы долбят так, что череп на шапке трещит! Подсветка яркая, ночью в комнате можно свет не включать. Братья по каткам теперь отчетливо слышат, как я кричу на тиммейтов. Из минусов — кошачьи ушки на ободке приманивают настоящего кота, который пытается их откусить, пока я в катке
+                </p>
+                <button class="text-gray-400 text-xs tracking-widest mt-2 cursor-pointer hover:font-semibold transition-all read-more-button">Читать дальше</button>
+            </article>
+
+            <!-- КАРТОЧКА 5 -->
+
+            <article class="bg-card-bg p-6 mb-4 mt-4 border border-gray-300 rounded-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 min-w-0"  data-date="2026-01-01" data-rating="3">
+                <div class="flex items-start gap-4">
+                    <img class="w-16 h-16 rounded-full object-cover" src="/src/images/Nigga.jpg" alt="Аватар">
+                    <div class="flex flex-col min-w-0">
+                        <h3 class="text-author-name font-author-name text-lg font-semibold break-words">Мелвин_Гроув_Стрит</h3>
+                        <p class="text-star-rating text-base font-bold">&#9733; &#9733; &#9733;  &#9734; &#9734;</p>
+                        <p class="text-gray-400 text-xs tracking-widest">01.01.2026</p>
+                    </div>
+                </div>
+                <h4 class="text-review-text font-review-text text-base font-bold leading-tight mt-4">Набор для барбекю «Мечта тяжеловеса» (20 предметов)</h4>
+                <p class="text-review-text font-review-text text-base leading-tight mt-2 line-clamp-3 review-text">
+                    Инструменты хорошие, прочные. Протестировал на огромном заказе: пожарил две позиции номер 9, большую позицию номер 9, позицию номер 6 с дополнительным соусом и две позиции номер 45. Лопатка выдержала, щипцы не погнулись. Снял одну звезду за то, что в комплекте не шло диетическое содовое пиво. Пришлось курить сигару на сухую.
+                </p>
+                <button class="text-gray-400 text-xs tracking-widest mt-2 cursor-pointer hover:font-semibold transition-all read-more-button">Читать дальше</button>
+            </article>
+
+            <!-- КАРТОЧКА 6 -->
+
+            <article class="bg-card-bg p-6 mb-4 mt-4 border border-gray-300 rounded-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 min-w-0" data-date="2026-02-27" data-rating="1">
+                <div class="flex items-start gap-4">
+                    <img class="w-16 h-16 rounded-full object-cover" src="/src/images/BatMan.jpg" alt="Аватар">
+                    <div class="flex flex-col min-w-0">
+                        <h3 class="text-author-name font-author-name text-lg font-semibold break-words">Fears_of_Gothem</h3>
+                        <p class="text-star-rating text-base font-bold">&#9733; &#9734; &#9734; &#9734; &#9734;</p>
+                        <p class="text-gray-400 text-xs tracking-widest">27.02.2026</p>
+                    </div>
+                </div>
+                <h4 class="text-review-text font-review-text text-base font-bold leading-tight mt-4">Острый соус «Дыхание Дракона» (1 000 000 сковиллей)</h4>
+                <p class="text-review-text font-review-text text-base leading-tight mt-2 line-clamp-3 review-text">
+                    В описании было написано: "Слегка пикантный, отлично подходит к наггетсам". Я капнул ОДНУ каплю. На фото — моё лицо спустя три секунды. Глаза вылезли из орбит, челюсть свело, язык вывалился и не задвигается обратно. Я больше не могу патрулировать Готэм, я могу только сидеть у вентилятора и мычать. Не рекомендую!
+                </p>
+                <button class="text-gray-400 text-xs tracking-widest mt-2 cursor-pointer hover:font-semibold transition-all read-more-button">Читать дальше</button>
+            </article>
+        </div>
+    </section>
+
+    <script>
+        const readMoreBtns = document.querySelectorAll('.read-more-button');
+
+        const sortButtons = document.querySelectorAll('.sort-btn');
+        const grid = document.querySelector('.reviews-grid');
+        
+        readMoreBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const text = btn.previousElementSibling;
+                text.classList.toggle('line-clamp-3');
+                btn.textContent = text.classList.contains('line-clamp-3')
+                ? 'Читать дальше'
+                : 'Свернуть';
+            });
+        });
+
+        sortButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cards = Array.from(grid.children);
+                const sortType = btn.dataset.sort;
+
+                // Для активной кнопки
+                sortButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                cards.sort((a, b) => {
+                    if (sortType === 'date-desc') {
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    }
+                    if (sortType === 'date-asc') {
+                        return new Date(a.dataset.date) - new Date(b.dataset.date);
+                    }
+                    if (sortType === 'rating-desc') {
+                        return b.dataset.rating - a.dataset.rating;
+                    }
+                    if (sortType === 'rating-asc') {
+                        return a.dataset.rating - b.dataset.rating;
+                    }
+                });
+
+                // Добавляем карточки в грид
+                cards.forEach(card => grid.appendChild(card));
+            });
+        });
+    </script>
+</body>
+</html>
