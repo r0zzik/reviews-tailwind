@@ -13,42 +13,25 @@
 
     <!-- СЕКЦИЯ -->
     <section class="bg-gradient-to-br from-indigo-50 via-white to-purple-50 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.5)] py-12 max-w-7xl mx-auto mt-8 px-4 rounded-lg">
-        <div class="max-w-7xl mx-auto flex justify-end gap-4 flex-wrap">
-            <span class="text-gray-400 text-xs">Сортировка:</span>
-            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all [&.active]:font-bold" data-sort="date-desc">&darr;Дата</button>
-            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all [&.active]:font-bold" data-sort="date-asc">&uarr;Дата</button>
-            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all [&.active]:font-bold" data-sort="rating-desc">&darr;Рейтинг</button>
-            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all [&.active]:font-bold" data-sort="rating-asc">&uarr;Рейтинг</button>
+        <div class="max-w-7xl mx-auto flex justify-end items-center gap-4 flex-wrap">
+            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all white-space-nowrap [&.active]:font-bold" data-sort="date" data-direction="desc">&darr;Сначала новые</button>
+            <button class="text-gray-400 text-xs sort-btn cursor-pointer hover:font-bold transition-all white-space-nowrap [&.active]:font-bold" data-sort="rating" data-direction="desc">&darr;Сначала положительные</button>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reviews-grid">
 
             <!-- КАРТОЧКА 1 -->
 
-            <!-- bg-card-bg (Фон карточки - Задача 1). -->
-            <!-- p-6 (Внутр отступы карточки - Задача 2). -->
-            <!-- mb-4 (Маргин-баттон карточки - Задача 2). -->
-            <!-- border (Граница карточки - Задача 2). -->
-            <!-- rounded-lg (Скругление углов карточки - Задача 2). -->
-            <!-- При наведении на карточку добавьте тень и увеличьте её размер с помощью классов hover:shadow-xl и hover:scale-105 - Задача 4. -->
-            <!-- Добавьте плавный переход с помощью transition transform duration-300 - Задача 4. -->
             <article class="bg-card-bg p-6 mb-4 mt-4 border border-gray-300 rounded-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 min-w-0" data-date="2026-09-24" data-rating="2">
                 <div class="flex items-start gap-4">
-                    <!-- Используйте классы w-16 h-16 rounded-full для изображения пользователя - Задача 3. -->
                     <img class="w-16 h-16 rounded-full object-cover" src="./src/images/Fry.jpg" alt="Аватар">
                     <div class="flex flex-col min-w-0">
-                        <!-- text-author-name (Цвет текста имени - Задача 1). -->
-                        <!-- font-author-name (Шрифт текста имени - Задача 1). -->
                         <h3 class="text-author-name font-author-name text-lg font-semibold break-words">Skeptik-2000</h3>
-                        <!-- text-star-rating (Цвет текста звезд - Задача 1). -->
-                        <!-- Для рейтинга используйте HTML-сущности звёзд (&#9733; для заполненной звезды и &#9734; для пустой звезды) и примените цвет text-yellow-500 ??? для их оформления - Задача 3. -->
                         <p class="text-star-rating text-base font-bold">&#9733; &#9733; &#9734; &#9734; &#9734;</p>
                         <p class="text-gray-400 text-xs tracking-widest">24.09.2026</p>
                     </div>
-                </div>
-                <!-- text-review-name (Цвет текста отзыва - Задача 1). -->  
+                </div>  
                 <h4 class="text-review-text font-review-text text-base font-bold leading-tight mt-4">Очки для компьютера с защитой от синего спектра</h4>
-                <!-- font-review-text (Шрифт текста отзыва - Задача 1). -->
                 <p class="text-review-text font-review-text text-base leading-tight mt-2 line-clamp-3 review-text">
                     Заказал эти очки, чтобы глаза меньше уставали. В итоге сижу в них второй час и вообще не могу понять: то ли очки бракованные, то ли у меня зрение упало, то ли продавец пытается меня обмануть... Короче, товар выглядит подозрительно. Заберите мои деньги и верните старые очки!
                 </p>
@@ -147,50 +130,6 @@
         </div>
     </section>
 
-    <script>
-        const readMoreBtns = document.querySelectorAll('.read-more-button');
-
-        const sortButtons = document.querySelectorAll('.sort-btn');
-        const grid = document.querySelector('.reviews-grid');
-        
-        readMoreBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const text = btn.previousElementSibling;
-                text.classList.toggle('line-clamp-3');
-                btn.textContent = text.classList.contains('line-clamp-3')
-                ? 'Читать дальше'
-                : 'Свернуть';
-            });
-        });
-
-        sortButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const cards = Array.from(grid.children);
-                const sortType = btn.dataset.sort;
-
-                // Для активной кнопки
-                sortButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                cards.sort((a, b) => {
-                    if (sortType === 'date-desc') {
-                        return new Date(b.dataset.date) - new Date(a.dataset.date);
-                    }
-                    if (sortType === 'date-asc') {
-                        return new Date(a.dataset.date) - new Date(b.dataset.date);
-                    }
-                    if (sortType === 'rating-desc') {
-                        return b.dataset.rating - a.dataset.rating;
-                    }
-                    if (sortType === 'rating-asc') {
-                        return a.dataset.rating - b.dataset.rating;
-                    }
-                });
-
-                // Добавляем карточки в грид
-                cards.forEach(card => grid.appendChild(card));
-            });
-        });
-    </script>
+    <script src="./script.js"></script>
 </body>
 </html>
